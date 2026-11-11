@@ -17,3 +17,14 @@ def count_failed_logins(events: list):
 
     return ip_failed_occurrences
 
+
+
+def detect_suspicious_ips(failed_logins: dict, threshold: int = 3) -> list:
+    suspicious_ips = []
+
+    for ip, count in failed_logins.items():
+        if count >= threshold:
+            suspicious_ips.append(ip)
+
+    return suspicious_ips
+
