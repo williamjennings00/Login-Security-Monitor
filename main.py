@@ -29,7 +29,7 @@ events = [
 
 
 
-def count_failed_logins(events: list[dict]) -> dict:
+def count_failed_logins(events: list[dict[str, str]]) -> dict[str, int]:
     ip_failed_occurrences = {}
 
     for event in events:
@@ -44,7 +44,11 @@ def count_failed_logins(events: list[dict]) -> dict:
 
 
 
-def detect_suspicious_ips(failed_logins: dict, threshold: int = 3) -> list:
+def detect_suspicious_ips(
+    failed_logins: dict[str, int],
+    threshold: int = 3
+) -> list[str]:
+    
     suspicious_ips = []
 
     for ip, count in failed_logins.items():
