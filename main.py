@@ -29,7 +29,7 @@ events = [
 
 
 
-def count_failed_logins(events: list[dict]):
+def count_failed_logins(events: list[dict]) -> dict:
     ip_failed_occurrences = {}
 
     for event in events:
