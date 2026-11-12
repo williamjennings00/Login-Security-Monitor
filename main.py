@@ -1,34 +1,14 @@
 from datetime import datetime, timedelta
-
-events = [
-    {
-        "timestamp": "2026-11-11T14:30:00",
-        "ip": "192.168.1.10",
-        "status": "FAILED"
-    },
-    {
-        "timestamp": "2026-11-11T14:30:15",
-        "ip": "192.168.1.10",
-        "status": "FAILED"
-    },
-    {
-        "timestamp": "2026-11-11T14:30:20",
-        "ip": "10.0.0.5",
-        "status": "SUCCESS"
-    },
-    {
-        "timestamp": "2026-11-11T14:30:35",
-        "ip": "192.168.1.10",
-        "status": "FAILED"
-    },
-    {
-        "timestamp": "2026-11-11T14:35:00",
-        "ip": "10.0.0.5",
-        "status": "FAILED"
-    }
-]
+import json
 
 
+
+def load_login_events(file_path: str) -> list[dict[str, str]]:
+    
+    with open(file_path, "logs.json", "r") as file:
+        events = json.load(file)
+
+    return events
 
 def list_events_in_time_duration(
     events: list[dict[str, str]],
